@@ -8,3 +8,9 @@ These are my scripts and config files used for my arch system using [Xorg](https
 * Shell : [bash](https://wiki.archlinux.org/title/Bash)
 * Status Bar : [polybar](https://github.com/polybar/polybar)
 * Wallpaper Handler : [feh](https://wiki.archlinux.org/title/Feh)
+
+## Installation
+
+Clone this repository to your home directory to place all config files in their appropriate location
+
+
