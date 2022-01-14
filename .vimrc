@@ -31,6 +31,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'junegunn/goyo.vim'
 call plug#end()
 
+" Vim Wiki (Note Taking)
+Plug 'vimwiki/vimwiki'
+
 " Disables compatibility with vi which can cause unexpected issues
 set nocompatible 
 " Vim will detect the file type in use
