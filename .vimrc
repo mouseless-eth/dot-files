@@ -5,10 +5,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Nerd tree
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"Plug 'scrooloose/nerdtree-project-plugin'
+Plug 'PhilRunninger/nerdtree-buffer-ops'
+Plug 'PhilRunninger/nerdtree-visual-selection'
 
 " Webdev
 Plug 'mattn/emmet-vim'
@@ -17,22 +20,26 @@ Plug 'pangloss/vim-javascript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main'  }
 Plug 'jiangmiao/auto-pairs'
 Plug 'ap/vim-css-color'
+"Plug 'shmargum/vim-sass-colors'
+"Plug 'etdev/vim-hexcolor'
 
 " Snippets (edit snippets using :UltiSnipsEdit)
 Plug 'epilande/vim-es2015-snippets'
 Plug 'SirVer/ultisnips'
-Plug 'epilande/vim-react-snippets'
+" Plug 'epilande/vim-react-snippets'
 
 " Themes
-Plug 'morhetz/gruvbox'
-Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'morhetz/gruvbox'
+"Plug 'HerringtonDarkholme/yats.vim'
 
 " Zen mode
 Plug 'junegunn/goyo.vim'
-call plug#end()
 
 " Vim Wiki (Note Taking)
 Plug 'vimwiki/vimwiki'
+
+call plug#end()
+
 
 " Disables compatibility with vi which can cause unexpected issues
 set nocompatible 
@@ -293,3 +300,6 @@ map <silent> <C-Left> :vertical resize +3<CR>
 map <silent> <C-Right> :vertical resize -3<CR>
 map <silent> <C-Up> :resize +3<CR>
 map <silent> <C-Down> :resize -3<CR>
+
+" Setting Map leader (for vim wiki)
+let mapleader = "\\"
