@@ -13,7 +13,7 @@ feh --bg-fill ~/.config/wallpapers/NGE/unit-02.jpg ~/.config/wallpapers/NGE/unit
 picom -b --experimental-backend &
 
 # [ Hide mouse if it is not in use ]
-unclutter -idle 0 &
+unclutter &
 
 # [ Polybar launch script ]
 killall -q polybar
