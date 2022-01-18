@@ -12,21 +12,21 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "Plug 'scrooloose/nerdtree-project-plugin'
 Plug 'PhilRunninger/nerdtree-buffer-ops'
 Plug 'PhilRunninger/nerdtree-visual-selection'
+Plug 'airblade/vim-gitgutter'
 
 " Webdev
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
-Plug 'pangloss/vim-javascript'
+"Plug 'pangloss/vim-javascript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main'  }
 Plug 'jiangmiao/auto-pairs'
 Plug 'ap/vim-css-color'
-"Plug 'shmargum/vim-sass-colors'
-"Plug 'etdev/vim-hexcolor'
+Plug 'frazrepo/vim-rainbow'
 
 " Snippets (edit snippets using :UltiSnipsEdit)
 Plug 'epilande/vim-es2015-snippets'
 Plug 'SirVer/ultisnips'
-" Plug 'epilande/vim-react-snippets'
+"Plug 'epilande/vim-react-snippets'
 
 " Themes
 "Plug 'morhetz/gruvbox'
@@ -50,7 +50,7 @@ filetype on
 
 
 
-" Alienware settings
+" === Settings From Old Build ===
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -71,7 +71,7 @@ set ttimeoutlen=0
 
 
 
-" [ Other shorcuts ]
+" === Other shorcuts === 
 "
 " Copy between vim terminals
 set clipboard=unnamed
@@ -84,7 +84,7 @@ set backspace=indent,eol,start
 
 
 
-" [ Emmet shorcuts ]
+" === Emmet shorcuts ===
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key=','
 
@@ -104,7 +104,8 @@ augroup END
 
 
 
-" [ Concouer Of Completion Config ] 
+" === Concouer Of Completion Config === 
+"
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
 
@@ -273,7 +274,8 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 
 
-"Vim snippets 
+" === Vim snippets ===
+"
 " Trigger configuration. You need to change this to something other than <tab>
 " if you use one of the following:
 " " - https://github.com/Valloric/YouCompleteMe
@@ -283,10 +285,38 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
-" NERDtree Settings
+" === NERDtree Settings ===
+"
+" Open a file tree structure similar to VSCode
 nmap <C-t> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
+
+" git state settings for nerdtree-git-plugin
+"
+
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
+
+" gitGutter shows uncommitted changes on a gutter (compatible with nerdtree)
+let g:gitgutter_sign_added = '✚'
+let g:gitgutter_sign_modified = '✹'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '-'
+
+" auto-clost nerdtree once exited
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Shortcutting split navigation
 " Vim Split Settings
@@ -303,3 +333,9 @@ map <silent> <C-Down> :resize -3<CR>
 
 " Setting Map leader (for vim wiki)
 let mapleader = "\\"
+
+
+" === Vim-Rainbow ===
+"
+au FileType js,c,cpp,objc,objcpp call rainbow#load()
+
