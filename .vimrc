@@ -16,12 +16,17 @@ Plug 'airblade/vim-gitgutter'
 
 " Webdev
 Plug 'mattn/emmet-vim'
-Plug 'mxw/vim-jsx'
+"Plug 'mxw/vim-jsx'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'peitalin/vim-jsx-typescript'
 "Plug 'pangloss/vim-javascript'
+"Plug 'chemzqm/vim-jsx-improve'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'yuezk/vim-js'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main'  }
 Plug 'jiangmiao/auto-pairs'
 Plug 'ap/vim-css-color'
-Plug 'frazrepo/vim-rainbow'
+"Plug 'frazrepo/vim-rainbow'
 
 " Snippets (edit snippets using :UltiSnipsEdit)
 Plug 'epilande/vim-es2015-snippets'
@@ -37,6 +42,9 @@ Plug 'junegunn/goyo.vim'
 
 " Vim Wiki (Note Taking)
 Plug 'vimwiki/vimwiki'
+
+" Turning Vim into an IDE
+Plug 'severin-lemaignan/vim-minimap'
 
 call plug#end()
 
@@ -334,8 +342,5 @@ map <silent> <C-Down> :resize -3<CR>
 " Setting Map leader (for vim wiki)
 let mapleader = "\\"
 
-
-" === Vim-Rainbow ===
-"
-au FileType js,c,cpp,objc,objcpp call rainbow#load()
-
+" === vim-jsx ===
+let g:vim_jsx_pretty_colorful_config = 1
