@@ -46,6 +46,10 @@ Plug 'vimwiki/vimwiki'
 " Turning Vim into an IDE
 Plug 'severin-lemaignan/vim-minimap'
 
+" Web3 (Eth Dev)
+Plug 'tomlion/vim-solidity'
+Plug 'vim-syntastic/syntastic'
+
 call plug#end()
 
 
@@ -82,7 +86,7 @@ set ttimeoutlen=0
 " === Other shorcuts === 
 "
 " Copy between vim terminals
-set clipboard=unnamed
+"set clipboard=unnamed
 " Copy from Vim to the system clipboard
 vmap <C-c> "+y
 " more powerful backspacing
@@ -104,6 +108,7 @@ let g:user_emmet_leader_key=','
 augroup FileTypeSpecificAutocommands
     autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
     autocmd FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
+    autocmd FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
     autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
     autocmd FileType php setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent
 augroup END
