@@ -4,7 +4,7 @@
 xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 60.00 --output HDMI-0 --mode 1920x1080 --rate 60.00 --rotate right --left-of HDMI-1
 
 # [ Setting capslock as our super key ]
-setxkbmap -option "caps:super"
+setxkbmap -layout us -option "caps:super"
 
 # [ Setting the wallpaper ]
 feh --bg-fill ~/.config/wallpapers/NGE/unit-02.jpg ~/.config/wallpapers/NGE/unit-02.jpg

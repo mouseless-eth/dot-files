@@ -26,12 +26,13 @@ Plug 'yuezk/vim-js'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main'  }
 Plug 'jiangmiao/auto-pairs'
 Plug 'ap/vim-css-color'
+Plug 'wavded/vim-stylus'
 "Plug 'frazrepo/vim-rainbow'
 
 " Snippets (edit snippets using :UltiSnipsEdit)
 Plug 'epilande/vim-es2015-snippets'
 Plug 'SirVer/ultisnips'
-"Plug 'epilande/vim-react-snippets'
+Plug 'epilande/vim-react-snippets'
 
 " Themes
 "Plug 'morhetz/gruvbox'
@@ -45,6 +46,7 @@ Plug 'vimwiki/vimwiki'
 
 " Turning Vim into an IDE
 Plug 'severin-lemaignan/vim-minimap'
+Plug 'tc50cal/vim-terminal'
 
 " Web3 (Eth Dev)
 Plug 'tomlion/vim-solidity'
@@ -75,7 +77,7 @@ set smarttab
 set hls
 inoremap jk <esc>
 inoremap <esc> `
-set si
+" set si
 set timeoutlen=200
 set ttimeoutlen=0
 
@@ -108,9 +110,13 @@ let g:user_emmet_leader_key=','
 augroup FileTypeSpecificAutocommands
     autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
     autocmd FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
+    autocmd FileType html setlocal softtabstop=2 shiftwidth=2 
     autocmd FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
     autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
     autocmd FileType php setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent
+    autocmd FileType stylus setlocal tabstop=1 softtabstop=1 shiftwidth=1 autoindent
+    autocmd FileType javascriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
+    autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
 augroup END
 
 
@@ -349,3 +355,6 @@ let mapleader = "\\"
 
 " === vim-jsx ===
 let g:vim_jsx_pretty_colorful_config = 1
+
+" Vim Terminal
+map <C-g> :TerminalVSplit bash

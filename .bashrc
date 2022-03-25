@@ -29,3 +29,5 @@ PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
 
 # Change to saved working dir
 [[ -f "${HOME}/.cwd"  ]] && cd "$(< ${HOME}/.cwd)"
+export NPM_CONFIG_PREFIX=~/.npm-global
+export PATH=$PATH:~/.npm-global/bin
