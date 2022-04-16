@@ -47,6 +47,7 @@ Plug 'vimwiki/vimwiki'
 " Turning Vim into an IDE
 Plug 'severin-lemaignan/vim-minimap'
 Plug 'tc50cal/vim-terminal'
+Plug 'github/copilot.vim'
 
 " Web3 (Eth Dev)
 Plug 'tomlion/vim-solidity'
