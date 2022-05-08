@@ -61,10 +61,6 @@ set nocompatible
 " Vim will detect the file type in use
 filetype on
 
-
-
-
-
 " === Settings From Old Build ===
 set tabstop=4
 set shiftwidth=4
@@ -85,7 +81,6 @@ set ttimeoutlen=0
 
 
 
-
 " === Other shorcuts === 
 "
 " Copy between vim terminals
@@ -94,6 +89,8 @@ set ttimeoutlen=0
 vmap <C-c> "+y
 " more powerful backspacing
 set backspace=indent,eol,start  
+" making pasting content that originates from outside of vim easier
+set pastetoggle=<F2>
 
 
 

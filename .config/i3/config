@@ -204,7 +204,7 @@ bindsym $mod+shift+p exec flameshot gui
 # to fix
 bindsym $mod+shift+n exec "setxkbmap -option caps:super
 
-# polybar
+# polybar (legacy)
 #exec_always --no-start-up-id ~/.config/polybar/launch.sh
 exec --no-startup-id killall polybar; polybar example &
 

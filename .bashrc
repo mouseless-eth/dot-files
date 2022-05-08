@@ -31,3 +31,4 @@ PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
 [[ -f "${HOME}/.cwd"  ]] && cd "$(< ${HOME}/.cwd)"
 export NPM_CONFIG_PREFIX=~/.npm-global
 export PATH=$PATH:~/.npm-global/bin
+. "$HOME/.cargo/env"
