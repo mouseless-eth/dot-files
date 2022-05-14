@@ -119,12 +119,18 @@ zplug load
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # foundry 
-mkdir -p $HOME/.oh-my-zsh/completions
-forge completions zsh > $HOME/.oh-my-zsh/completions/_forge
-cast completions zsh > $HOME/.oh-my-zsh/completions/_cast
-source $HOME/.zshrc
+# mkdir -p $HOME/.oh-my-zsh/completions
+# forge completions zsh > $HOME/.oh-my-zsh/completions/_forge
+# cast completions zsh > $HOME/.oh-my-zsh/completions/_cast
+# source $HOME/.zshrc
 
 # zsh autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(completion match_prev_cmd)
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd *"
 bindkey '^ ' autosuggest-accept
+
+# Change to saved working dir
+[[ -f "${HOME}/.cwd"  ]] && cd "$(< ${HOME}/.cwd)"
+export NPM_CONFIG_PREFIX=~/.npm-global
+export PATH=$PATH:~/.npm-global/bin
+. "$HOME/.cargo/env"

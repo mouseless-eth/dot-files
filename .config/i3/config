@@ -182,6 +182,7 @@ for_window[class=".*"] border pixel 0
 smart_borders on
 gaps inner 12
 gaps outer 0
+# client.focused #353439 #9FEE00 #7B9F35
 
 # starting Picom 
 # exec --no-startup-id picom -b --experimental-backend &
