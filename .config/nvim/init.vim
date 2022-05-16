@@ -1,4 +1,5 @@
 runtime ./plug.vim
+runtime ./maps.vim
 
 " Fundamentals "{{{
 " ---------------------------------------------------------------------
@@ -48,15 +49,11 @@ set wildignore+=*/node_modules/*
 " set mode when leaving insert
 autocmd InsertLeave * set nopaste
 set pastetoggle=<F2>
-vmap <C-c> "+y
 
 set showmatch
 set ruler
 set timeoutlen=200
 set ttimeoutlen=0
-
-inoremap jk <esc>
-inoremap <esc> `
 
 "}}}
 
@@ -69,8 +66,8 @@ inoremap <esc> `
 "highlight CursorLineNR ctermbg=red
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE 
 highlight LineNr term=bold cterm=none ctermfg=240 
-highlight CursorLineNr term=bold ctermfg=Yellow 
-highlight CursorLine ctermbg=LightBlue
+"highlight CursorLineNr term=bold ctermfg=Yellow 
+"highlight CursorLine ctermbg=LightBlue
 
 set guicursor=n-c-v:hor90,i-ci:block
 
@@ -81,10 +78,6 @@ augroup BgHighlight
 augroup END
 
 "}}}
-
-" === Emmet shorcuts ===
-let g:user_emmet_mode='n'
-let g:user_emmet_leader_key=','
 
 " Changing indent for javascript files
 augroup FileTypeSpecificAutocommands
@@ -99,52 +92,3 @@ augroup FileTypeSpecificAutocommands
   autocmd FileType solidity setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
   autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
 augroup END
-
-" === NERDtree Settings ===
-"
-" Open a file tree structure similar to VSCode
-nmap <C-t> :NERDTreeToggle<CR>
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
-
-" git state settings for nerdtree-git-plugin
-"
-
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✔︎",
-    \ 'Ignored'   : '☒',
-    \ "Unknown"   : "?"
-    \ }
-
-" gitGutter shows uncommitted changes on a gutter (compatible with nerdtree)
-let g:gitgutter_sign_added = '✚'
-let g:gitgutter_sign_modified = '✹'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '-'
-let g:gitgutter_sign_modified_removed = '-'
-
-" auto-clost nerdtree once exited
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Shortcutting split navigation
-" Vim Split Settings
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" Make adjusting split sizes a bit more friendly
-map <silent> <C-Left> :vertical resize +3<CR>
-map <silent> <C-Right> :vertical resize -3<CR>
-map <silent> <C-Up> :resize +3<CR>
-map <silent> <C-Down> :resize -3<CR>
-
-" Setting Map leader (for vim wiki)
-let mapleader = "\\"
