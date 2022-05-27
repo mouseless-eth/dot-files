@@ -15,6 +15,7 @@ Plug 'mattn/emmet-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main'  }
 Plug 'ap/vim-css-color'
 Plug 'wavded/vim-stylus'
+Plug 'neoclide/vim-jsx-improve'
 
 " Quality Of Life
 Plug 'junegunn/goyo.vim'
@@ -36,14 +37,23 @@ if has("nvim")
   Plug 'kristijanhusak/defx-git'
   Plug 'kristijanhusak/defx-icons'
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+
+  " LSP
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/nvim-lsp-installer'
   Plug 'tami5/lspsaga.nvim'
   Plug 'folke/lsp-colors.nvim'
-  Plug 'L3MON4D3/LuaSnip'
+  Plug 'simrat39/rust-tools.nvim'
+  Plug 'tomlion/vim-solidity'
+
+  " Autocompletion frameworks
   Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-vsnip'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-buffer'
+
+  Plug 'L3MON4D3/LuaSnip'
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'onsails/lspkind-nvim'
@@ -54,6 +64,8 @@ if has("nvim")
   Plug 'windwp/nvim-ts-autotag'
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
   Plug 'tiagovla/tokyodark.nvim'
+  Plug 'zthxxx/zsh-history-enquirer'
+  Plug 'akinsho/toggleterm.nvim'
 endif
 
 call plug#end()

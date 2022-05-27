@@ -217,3 +217,7 @@ exec --no-startup-id ~/.config/i3/startup.sh
 
 # Mouse no longer controls focus (Need to click on application to bring focus to it)
 focus_follows_mouse no
+
+# Starting up geth
+alacritty -name geth_instance -e sudo journalctl -fu geth.service
+assign [instance="geth_instance"] workspace 10

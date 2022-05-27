@@ -16,7 +16,6 @@ set nocompatible
 set number
 syntax enable
 set title
-set autoindent
 set nobackup
 set hls
 set showcmd
@@ -52,8 +51,8 @@ set pastetoggle=<F2>
 
 set showmatch
 set ruler
-set timeoutlen=200
-set ttimeoutlen=0
+" set timeoutlen=200
+" set ttimeoutlen=0
 
 "}}}
 
@@ -84,11 +83,11 @@ augroup FileTypeSpecificAutocommands
   autocmd FileType javascript setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
   autocmd FileType json setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
   autocmd FileType html setlocal softtabstop=2 shiftwidth=2 
-  autocmd FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
+  autocmd FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent 
   autocmd FileType css setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
   autocmd FileType php setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent
   autocmd FileType stylus setlocal tabstop=1 softtabstop=1 shiftwidth=1 autoindent
-  autocmd FileType javascriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
+  autocmd FileType javascriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent
   autocmd FileType solidity setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
-  autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
+  autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent 
 augroup END
