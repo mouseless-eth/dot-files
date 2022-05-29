@@ -83,6 +83,37 @@ nvim_lsp.tsserver.setup {
   capabilities = capabilities
 }
 
+-- nvim_lsp.solang.setup {
+--   on_attach = on_attach,
+--   cmd= {
+--     "solang", "--language-server", 
+--     "--target", "ewasm", 
+--     "--importmap", "forge-std=lib/forge-std/src", 
+--     "--importmap", "ds-test=lib/forge-std/lib/ds-test/src",
+--     "--importmap", "openzeppelin-contracts=lib/openzeppelin-contracts",
+--   }
+-- }
+
+-- nvim_lsp.solidity_ls.setup {
+--   on_attach = on_attach,
+--   cmd= {
+--     "solidity-language-server", "--stdio", 
+--   },
+-- }
+
+-- nvim_lsp.solc.setup {
+--   on_attach = on_attach,
+--   cmd= {
+--     "solc", 
+--     "--base-path", ".",
+--     "--include-path", "lib/",
+--     "forge-std/=lib/forge-std/src/", 
+--     "ds-test/=lib/forge-std/lib/ds-test/src/",
+--     "openzeppelin-contracts/=lib/openzeppelin-contracts/",
+--     "--lsp", 
+--   },
+-- }
+
 nvim_lsp.diagnosticls.setup {
   on_attach = on_attach,
   filetypes = { 'javascript', 'javascriptreact', 'json', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'pandoc' },

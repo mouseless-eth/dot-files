@@ -45,6 +45,7 @@ if has("nvim")
   Plug 'folke/lsp-colors.nvim'
   Plug 'simrat39/rust-tools.nvim'
   Plug 'tomlion/vim-solidity'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Autocompletion frameworks
   Plug 'hrsh7th/cmp-nvim-lsp'
