@@ -219,5 +219,5 @@ exec --no-startup-id ~/.config/i3/startup.sh
 focus_follows_mouse no
 
 # Starting up geth
-alacritty -name geth_instance -e sudo journalctl -fu geth.service
-assign [instance="geth_instance"] workspace 10
+# alacritty -name geth_instance -e sudo journalctl -fu geth.service
+# assign [instance="geth_instance"] workspace 10
