@@ -15,7 +15,8 @@ Plug 'mattn/emmet-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main'  }
 Plug 'ap/vim-css-color'
 Plug 'wavded/vim-stylus'
-Plug 'neoclide/vim-jsx-improve'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Quality Of Life
 Plug 'junegunn/goyo.vim'
