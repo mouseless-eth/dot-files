@@ -14,6 +14,7 @@ if !1 | finish | endif
 
 set nocompatible 
 set number
+set relativenumber
 syntax enable
 set title
 set nobackup
