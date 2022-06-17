@@ -7,7 +7,7 @@ xrandr --output HDMI-1 --primary --mode 1920x1080 --rate 60.00 --output HDMI-0 -
 setxkbmap -layout us -option "caps:super"
 
 # [ Setting the wallpaper ]
-feh --bg-fill ~/.config/wallpapers/NGE/unit-02.jpg ~/.config/wallpapers/NGE/unit-02.jpg
+feh --bg-fill ~/.config/wallpapers/NGE/unit-02.jpg ~/.config/wallpapers/NGE/finalScene.jpg
 
 # [ Setting up picom ]
 picom -b --experimental-backend &

@@ -91,4 +91,5 @@ augroup FileTypeSpecificAutocommands
   autocmd FileType javascriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent
   autocmd FileType solidity setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
   autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent 
+  autocmd FileType rust setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent 
 augroup END
