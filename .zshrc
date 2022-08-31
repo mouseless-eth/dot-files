@@ -161,11 +161,32 @@ alias vim="nvim"
 # Alias for dotfile management
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# Spawning new terminal in same current working directory
-# Commands to be executed before the prompt is displayed
-# Save current working dir
-PROMPT_COMMAND='pwd > "${HOME}/.cwd"'
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Spawn terminal in current working directory
+# Sets a x window property on every directory change in the shell
+# So I can stay in the same directory when opening a new terminal
+function my_set_xwindow_path_hook() {
+  if [[ $TERM == "xterm-256color" && ! -z $WINDOWID ]]; then
+    xprop -id $WINDOWID -f MY_XWINDOW_PATH 8s -set MY_XWINDOW_PATH "$(pwd)"
+  fi
+}
+chpwd_functions=(${chpwd_functions[@]} "my_set_xwindow_path_hook")
+precmd_functions=(${precmd_functions[@]} "my_set_xwindow_path_hook")
+
+# Make .env file into environment variables
+alias setupenv='export $(xargs < .env)'
+
+# Make alias for pnpm
+alias y='npx pnpm'
+
+# Allow us to install npm packages gloabally without using sudo
+NPM_PACKAGES="${HOME}/.npm-packages"
+NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+PATH="$NPM_PACKAGES/bin:$PATH"
+# Unset manpath so we can inherit from /etc/manpath via the `manpath`
+# command
+unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
