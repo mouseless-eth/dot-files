@@ -24,6 +24,7 @@ set cmdheight=1
 set laststatus=2
 set scrolloff=10
 set expandtab
+set signcolumn=yes
 
 " incremental substitution (neovim)
 if has('nvim')
@@ -59,15 +60,10 @@ set ruler
 
 " Highlights "{{{
 " ---------------------------------------------------------------------
-"set cursorcolumn
-"set cursorline
 
 " Set cursor line color on visual mode
-"highlight CursorLineNR ctermbg=red
 highlight Visual cterm=NONE ctermbg=236 ctermfg=NONE 
 highlight LineNr term=bold cterm=none ctermfg=240 
-"highlight CursorLineNr term=bold ctermfg=Yellow 
-"highlight CursorLine ctermbg=LightBlue
 
 set guicursor=n-c-v:hor90,i-ci:block
 

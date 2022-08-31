@@ -4,6 +4,7 @@
     "forge-std/": "lib/forge-std/src/",
     "ds-test/": "lib/forge-std/lib/ds-test/src/",
     "ERC721A": "lib/ERC721A/contracts/",
-    "solmate": "lib/solmate/src/"
+    "solmate": "lib/solmate/src/",
+    "@openzeppelin": "packages/hardhat/node_modules/@openzeppelin/"
   }
 }
