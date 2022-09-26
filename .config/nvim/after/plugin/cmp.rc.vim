@@ -98,6 +98,10 @@ lua <<EOF
     on_attach = on_attach,
     capabilities = capabilities,
   }
+  require('lspconfig')['rust-analyzer'].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
   require('lspconfig')['sumneko_lua'].setup {
     on_attach = on_attach,
     capabilities = capabilities,
