@@ -30,6 +30,8 @@ if has("nvim")
   Plug 'simrat39/rust-tools.nvim'
   Plug 'tomlion/vim-solidity'
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'mfussenegger/nvim-dap'
+  Plug 'simrat39/inlay-hints.nvim'
 
   " Autocompletion frameworks
   Plug 'hrsh7th/cmp-nvim-lsp'

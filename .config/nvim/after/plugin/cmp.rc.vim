@@ -1,6 +1,7 @@
 set completeopt=menu,menuone,noselect
 
 lua <<EOF
+  local nvim_lsp = require'lspconfig'
   vim.cmd[[packadd nvim-cmp]]
   
   vim.cmd[[packadd cmp-nvim-lsp]]
@@ -98,7 +99,7 @@ lua <<EOF
     on_attach = on_attach,
     capabilities = capabilities,
   }
-  require('lspconfig')['rust-analyzer'].setup {
+  require('lspconfig')['taplo'].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
@@ -106,4 +107,30 @@ lua <<EOF
     on_attach = on_attach,
     capabilities = capabilities,
   }
+
+  --local on_attach = function(client)
+  --  require'completion'.on_attach(client)
+  --end
+
+  --nvim_lsp.rust_analyzer.setup({
+  --    on_attach=on_attach,
+  --    settings = {
+  --        ["rust-analyzer"] = {
+  --            imports = {
+  --                granularity = {
+  --                    group = "module",
+  --                },
+  --                prefix = "self",
+  --            },
+  --            cargo = {
+  --                buildScripts = {
+  --                    enable = true,
+  --                },
+  --            },
+  --            procMacro = {
+  --                enable = true
+  --            },
+  --        }
+  --    }
+  --})
 EOF
