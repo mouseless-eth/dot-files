@@ -32,6 +32,7 @@ if has("nvim")
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'mfussenegger/nvim-dap'
   Plug 'simrat39/inlay-hints.nvim'
+  Plug 'j-hui/fidget.nvim'
 
   " Autocompletion frameworks
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -53,7 +54,7 @@ if has("nvim")
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-  Plug 'tiagovla/tokyodark.nvim'
+  " Plug 'tiagovla/tokyodark.nvim'
   Plug 'akinsho/toggleterm.nvim'
 endif
 

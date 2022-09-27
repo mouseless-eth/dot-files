@@ -182,6 +182,9 @@ alias setupenv='export $(xargs < .env)'
 # Make alias for pnpm
 alias y='npx pnpm'
 
+# Make alias for neovide
+alias nvide='neovide'
+
 # Allow us to install npm packages gloabally without using sudo
 NPM_PACKAGES="${HOME}/.npm-packages"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
@@ -190,3 +193,8 @@ PATH="$NPM_PACKAGES/bin:$PATH"
 # command
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+# pnpm
+export PNPM_HOME="/home/admin/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
