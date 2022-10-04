@@ -5,7 +5,7 @@ autopairs.setup({
   disable_filetype = { "TelescopePrompt" , "vim" },
   fast_wrap = {
     map = '<F3>',
-    chars = { '{', '[', '(', '"', "'" },
+    chars = { '{', '[', '(', '"', "'", "<" },
     pattern = [=[[%'%"%)%>%]%)%}%,]]=],
     end_key = '$',
     keys = 'qwertyuiopzxcvbnmasdfghjkl',
