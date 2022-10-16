@@ -49,7 +49,7 @@ set wildignore+=*/node_modules/*
 
 " set mode when leaving insert
 autocmd InsertLeave * set nopaste
-set pastetoggle=<F2>
+set pastetoggle=<F3>
 
 set showmatch
 set ruler

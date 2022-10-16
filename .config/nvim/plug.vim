@@ -56,6 +56,13 @@ if has("nvim")
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
   " Plug 'tiagovla/tokyodark.nvim'
   Plug 'akinsho/toggleterm.nvim'
+
+  " Movement
+  Plug 'ggandor/leap.nvim'
+
+  " IDE
+  " Plug 'nvim-tree/nvim-tree.lua'
+  " Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 endif
 
 call plug#end()

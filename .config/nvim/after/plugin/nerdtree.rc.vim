@@ -1,7 +1,7 @@
 " === NERDtree Settings ===
 "
 " Open a file tree structure similar to VSCode
-nmap <C-t> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
