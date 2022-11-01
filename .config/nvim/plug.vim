@@ -28,6 +28,7 @@ if has("nvim")
   Plug 'glepnir/lspsaga.nvim'
   Plug 'folke/lsp-colors.nvim'
   Plug 'simrat39/rust-tools.nvim'
+  Plug 'rust-lang/rust.vim'
   Plug 'tomlion/vim-solidity'
   " Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'mfussenegger/nvim-dap'

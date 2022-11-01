@@ -87,13 +87,19 @@ augroup FileTypeSpecificAutocommands
   autocmd FileType javascriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent
   autocmd FileType solidity setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
   autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent 
-  autocmd FileType rust setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent 
+  autocmd FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 autoindent 
 augroup END
+
+let g:tokyonight_style = "moon"
+let g:tokyonight_transparent = "true"
+let g:tokyonight_lualine_bold = "true"
+
+colorscheme tokyonight
 
 " Neovide specific configs
 if exists("g:neovide")
-  let g:neovide_transparency=0.88
-  let g:transparency = 0.88
+  " let g:neovide_transparency=0.88
+  " let g:transparency = 0.88
 
   inoremap <C-S-v> <Esc>"+p`]a
 
