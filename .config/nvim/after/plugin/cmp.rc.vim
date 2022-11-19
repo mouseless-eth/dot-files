@@ -107,6 +107,10 @@ lua <<EOF
     on_attach = on_attach,
     capabilities = capabilities,
   }
+  -- require('lspconfig')['solang'].setup {
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  -- }
 
   --local on_attach = function(client)
   --  require'completion'.on_attach(client)

@@ -85,7 +85,7 @@ augroup FileTypeSpecificAutocommands
   autocmd FileType php setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent
   autocmd FileType stylus setlocal tabstop=1 softtabstop=1 shiftwidth=1 autoindent
   autocmd FileType javascriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent
-  autocmd FileType solidity setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent  
+  autocmd FileType solidity setlocal tabstop=4 softtabstop=4 shiftwidth=4 autoindent  
   autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent 
   autocmd FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 autoindent 
 augroup END
@@ -109,3 +109,7 @@ if exists("g:neovide")
 
   colorscheme tokyonight
 endif
+
+" Make Splits Pretty
+set laststatus=3
+highlight WinSeparator guibg=None
