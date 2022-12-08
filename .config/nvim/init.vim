@@ -88,6 +88,7 @@ augroup FileTypeSpecificAutocommands
   autocmd FileType solidity setlocal tabstop=4 softtabstop=4 shiftwidth=4 autoindent  
   autocmd FileType typescriptreact setlocal tabstop=2 softtabstop=2 shiftwidth=2 autoindent 
   autocmd FileType rust setlocal tabstop=4 softtabstop=4 shiftwidth=4 autoindent 
+  autocmd FileType yulp setlocal tabstop=4 softtabstop=4 shiftwidth=4 autoindent  
 augroup END
 
 let g:tokyonight_style = "moon"

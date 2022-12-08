@@ -34,6 +34,7 @@ if has("nvim")
   Plug 'mfussenegger/nvim-dap'
   Plug 'simrat39/inlay-hints.nvim'
   Plug 'j-hui/fidget.nvim'
+  Plug 'plinki/vim-yulp'
 
   " Autocompletion frameworks
   Plug 'hrsh7th/cmp-nvim-lsp'
