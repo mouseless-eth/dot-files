@@ -35,6 +35,9 @@ if has("nvim")
   Plug 'simrat39/inlay-hints.nvim'
   Plug 'j-hui/fidget.nvim'
   Plug 'plinki/vim-yulp'
+  Plug 'wuwe1/vim-huff'
+  Plug 'zbirenbaum/copilot.lua'
+  Plug 'zbirenbaum/copilot-cmp'
 
   " Autocompletion frameworks
   Plug 'hrsh7th/cmp-nvim-lsp'
