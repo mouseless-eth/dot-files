@@ -18,7 +18,7 @@ keymap("n", "gr", "<cmd>Lspsaga rename ++project<CR>")
 -- you can edit the definition file in this float window
 -- also support open/vsplit/etc operation check definition_action_keys
 -- support tagstack C-t jump back
-keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
+keymap("n", "gp", "<cmd>Lspsaga peek_definition<CR>")
 
 -- Go to Definition
 keymap("n", "gd", "<cmd>Lspsaga goto_definition<CR>")
@@ -47,7 +47,7 @@ keymap("n", "]E", function()
 end)
 
 -- Toggle Outline
-keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
+keymap("n", "gi", "<cmd>Lspsaga outline<CR>")
 
 -- Hover Doc
 -- if there has no hover will have a notify no information available

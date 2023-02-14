@@ -38,8 +38,9 @@ vim.g.mapleader = " "
 
 vim.opt.foldcolumn = "1"
 
--- Set the clipboard option to "unnamedplus" (remove new line on copied text)
-vim.opt.clipboard = "unnamedplus"
+-- Set the clipboard option to "unnamedplus" (copy deleted text to clipboard)
+-- vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "_d"
 
 -- Set utf-8 as default encoding
 vim.opt.encoding = "UTF-8"

@@ -1,11 +1,9 @@
-local rt = require("rust-tools")
-
 local opts = {
     tools = { -- rust-tools options
 
         -- how to execute terminal commands
         -- options right now: termopen / quickfix
-        executor = require("rust-tools/executors").termopen,
+        executor = require("rust-tools.executors").termopen,
 
         -- callback to execute once rust-analyzer is done initializing the workspace
         -- The callback receives one parameter indicating the `health` of the server: "ok" | "warning" | "error"
@@ -66,6 +64,12 @@ local opts = {
                 { "╰", "FloatBorder" },
                 { "│", "FloatBorder" },
             },
+
+            -- Maximal width of the hover window. Nil means no max.
+            max_width = nil,
+
+            -- Maximal height of the hover window. Nil means no max.
+            max_height = nil,
 
             -- whether the hover action window gets automatically focused
             -- default: false
@@ -154,15 +158,9 @@ local opts = {
     -- these override the defaults set by rust-tools.nvim
     -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
     server = {
-        on_attach = function(_, bufnr)
-            -- Hover actions
-            vim.keymap.set("n", "<C-k>", rt.hover_actions.hover_actions, { buffer = bufnr })
-            -- Code action groups
-            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-        end,
         -- standalone file support
         -- setting it to false may improve startup time
-        -- standalone = true,
+        standalone = true,
     }, -- rust-analyzer options
 
     -- debugging stuff
@@ -175,5 +173,4 @@ local opts = {
     },
 }
 
-require("rust-tools").setup(opts)
-require("rust-tools").inlay_hints.enable()
+require('rust-tools').setup(opts)

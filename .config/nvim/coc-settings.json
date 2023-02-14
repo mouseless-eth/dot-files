@@ -7,5 +7,12 @@
     "ERC721A": "lib/ERC721A/contracts/",
     "solmate": "lib/solmate/src/",
     "@openzeppelin": "packages/hardhat/node_modules/@openzeppelin/"
-  }
+  },
+  "solidity": {
+            "command": "solc",
+            "args": [ "--lsp" ],
+            "trace.server": "verbose",
+            "rootPatterns": [".git/"],
+            "filetypes": ["solidity"]
+        }
 }
