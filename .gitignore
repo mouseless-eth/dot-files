@@ -1,1 +1,3 @@
 .config/nvim/plugins/
+.zsh_history
+.bash_history
