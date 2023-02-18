@@ -74,6 +74,8 @@ return require('packer').startup(function(use)
     use('neovim/nvim-lspconfig')
     use('williamboman/mason.nvim')
     use('williamboman/mason-lspconfig.nvim')
+    -- Null-ls (using for autosave)
+    use('jose-elias-alvarez/null-ls.nvim')
 
     -- Autocompletion
     use('hrsh7th/nvim-cmp')
@@ -97,13 +99,13 @@ return require('packer').startup(function(use)
     -- Additional functionality
     use("folke/zen-mode.nvim")
     use("mouseless-eth/vim-huff")
+    use { "zbirenbaum/copilot.lua" }
     use {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      event = "InsertEnter",
-      config = function()
-        require("copilot").setup({})
-      end,
+        "zbirenbaum/copilot-cmp",
+         after = { "copilot.lua" },
+         config = function ()
+           require("copilot_cmp").setup()
+         end
     }
 
     -- Project layout
@@ -111,7 +113,6 @@ return require('packer').startup(function(use)
       'stevearc/aerial.nvim',
       config = function() require('aerial').setup() end
     }
-
 
     -- GoYo
     use('junegunn/goyo.vim')

@@ -110,13 +110,17 @@ _G.packer_plugins = {
     path = "/home/admin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["copilot.lua"] = {
-    commands = { "Copilot" },
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\fcopilot\frequire\0" },
-    loaded = false,
+  ["copilot-cmp"] = {
+    config = { "\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16copilot_cmp\frequire\0" },
+    load_after = {},
+    loaded = true,
     needs_bufread = false,
-    only_cond = false,
-    path = "/home/admin/.local/share/nvim/site/pack/packer/opt/copilot.lua",
+    path = "/home/admin/.local/share/nvim/site/pack/packer/opt/copilot-cmp",
+    url = "https://github.com/zbirenbaum/copilot-cmp"
+  },
+  ["copilot.lua"] = {
+    loaded = true,
+    path = "/home/admin/.local/share/nvim/site/pack/packer/start/copilot.lua",
     url = "https://github.com/zbirenbaum/copilot.lua"
   },
   ["fidget.nvim"] = {
@@ -184,6 +188,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/admin/.local/share/nvim/site/pack/packer/start/nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/admin/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
@@ -274,10 +283,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lspsaga.nvim
-time([[Config for lspsaga.nvim]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\flspsaga\frequire\0", "config", "lspsaga.nvim")
-time([[Config for lspsaga.nvim]], false)
 -- Config for: nvim-autopairs
 time([[Config for nvim-autopairs]], true)
 try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
@@ -286,25 +291,19 @@ time([[Config for nvim-autopairs]], false)
 time([[Config for aerial.nvim]], true)
 try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vaerial\frequire\0", "config", "aerial.nvim")
 time([[Config for aerial.nvim]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\flspsaga\frequire\0", "config", "lspsaga.nvim")
+time([[Config for lspsaga.nvim]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd copilot.lua ]]
+vim.cmd [[ packadd copilot-cmp ]]
 
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Copilot', function(cmdargs)
-          require('packer.load')({'copilot.lua'}, { cmd = 'Copilot', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'copilot.lua'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Copilot ', 'cmdline')
-      end})
-time([[Defining lazy-load commands]], false)
+-- Config for: copilot-cmp
+try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\16copilot_cmp\frequire\0", "config", "copilot-cmp")
 
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Event lazy-loads
-time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'copilot.lua'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
-time([[Defining lazy-load event autocommands]], false)
-vim.cmd("augroup END")
+time([[Sequenced loading]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
