@@ -1,7 +1,3 @@
-local null_ls = require("null-ls")
-
-local formatting = null_ls.builtins.formatting
-
 local async_formatting = function(bufnr)
     bufnr = bufnr or vim.api.nvim_get_current_buf()
 
@@ -33,7 +29,8 @@ local async_formatting = function(bufnr)
     )
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local null_ls = require("null-ls")
+local formatting = null_ls.builtins.formatting
 
 local sources = {
     formatting.stylua,
@@ -41,11 +38,20 @@ local sources = {
     formatting.solhint,
 }
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
 null_ls.setup({
+    -- add your sources / config options here
     sources = sources,
     debug = false,
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
+            vim.lsp.buf.format({
+                bufnr = bufnr,
+                filter = function(c) -- c = client
+                    return c.name == "null-ls"
+                end,
+            })
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
             vim.api.nvim_create_autocmd("BufWritePost", {
                 group = augroup,
