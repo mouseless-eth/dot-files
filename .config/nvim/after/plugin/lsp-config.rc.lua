@@ -4,37 +4,41 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 lspconfig["rust_analyzer"].setup({
-	capabilities = capabilities,
+    capabilities = capabilities,
 })
 lspconfig["gopls"].setup({
-	capabilities = capabilities,
+    capabilities = capabilities,
 })
-lspconfig["solidity_ls"].setup({
-	capabilities = capabilities,
+lspconfig["solidity"].setup({
+    capabilities = capabilities,
+    cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
+    filetypes = { "solidity" },
+    single_file_support = true,
+    root_dir = require("lspconfig.util").root_pattern "foundry.toml",
 })
 lspconfig["clangd"].setup({
-	capabilities = capabilities,
+    capabilities = capabilities,
 })
 lspconfig["sumneko_lua"].setup({
-	filetypes = { "lua" },
+    filetypes = { "lua" },
 
-	settings = {
-		Lua = {
-			-- Version of Lua used
-			runtime = { version = "LuaJIT" },
-			-- Get the language server to recognize the `vim` global
-			diagnostics = { globals = { "vim" } },
-			-- Make the server aware of Neovim runtime files
-			workspace = {
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.stdpath("config") .. "/lua"] = true,
-				},
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = { enable = false },
-		},
-	},
+    settings = {
+        Lua = {
+            -- Version of Lua used
+            runtime = { version = "LuaJIT" },
+            -- Get the language server to recognize the `vim` global
+            diagnostics = { globals = { "vim" } },
+            -- Make the server aware of Neovim runtime files
+            workspace = {
+                library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.stdpath("config") .. "/lua"] = true,
+                },
+            },
+            -- Do not send telemetry data containing a randomized but unique identifier
+            telemetry = { enable = false },
+        },
+    },
 })
 
 ---- Format on save (relies on null_ls)
