@@ -43,4 +43,4 @@ vim.opt.foldcolumn = "1"
 -- vim.opt.clipboard = "_d"
 
 -- Set utf-8 as default encoding
-vim.opt.encoding = "UTF-8"
+-- vim.opt.encoding = "UTF-8"

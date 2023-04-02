@@ -77,8 +77,8 @@ return require("packer").startup(function(use)
     use("neovim/nvim-lspconfig")
     use("williamboman/mason.nvim")
     use("williamboman/mason-lspconfig.nvim")
-    -- Null-ls (using for autosave)
-    use("jose-elias-alvarez/null-ls.nvim")
+    -- Null-ls (formatting)
+    -- use("jose-elias-alvarez/null-ls.nvim")
 
     -- Autocompletion
     use("hrsh7th/nvim-cmp")
@@ -120,6 +120,7 @@ return require("packer").startup(function(use)
 
     -- Movement
     use("ggandor/leap.nvim")
+    use("MattesGroeger/vim-bookmarks")
 
     -- GoYo
     use("junegunn/goyo.vim")

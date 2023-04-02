@@ -2,21 +2,46 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
+
+local on_attach = function(client)
+    -- Enable autoformat on save
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)")
+    -- Add other on_attach functionality here if needed
+end
+
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 lspconfig["rust_analyzer"].setup({
     capabilities = capabilities,
+    settings = {
+        ["rust-analyzer"] = {
+            procMacro = {
+                enable = false
+            },
+            diagnostics = {
+                disabled = { "unresolved-proc-macro" }
+            }
+        }
+    }
 })
 lspconfig["gopls"].setup({
     capabilities = capabilities,
 })
+lspconfig["tsserver"].setup({
+    capabilities = capabilities,
+})
 lspconfig["solidity"].setup({
     capabilities = capabilities,
+    on_attach = on_attach,
+
     cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
     filetypes = { "solidity" },
     single_file_support = true,
-    root_dir = require("lspconfig.util").root_pattern "foundry.toml",
+    root_dir = require("lspconfig.util").root_pattern("foundry.toml"),
 })
 lspconfig["clangd"].setup({
+    capabilities = capabilities,
+})
+lspconfig["jedi_language_server"].setup({
     capabilities = capabilities,
 })
 lspconfig["sumneko_lua"].setup({
@@ -41,8 +66,4 @@ lspconfig["sumneko_lua"].setup({
     },
 })
 
----- Format on save (relies on null_ls)
---local on_attach = function(client, bufnr)
---    local bufopts = { noremap = true, silent = true, buffer = bufnr }
---    vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
---end
+vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]])

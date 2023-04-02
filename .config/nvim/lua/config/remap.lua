@@ -27,3 +27,6 @@ vim.keymap.set("i", "<esc>", "`", { noremap = true })
 
 -- Ctrl+c yanks to system clipboard (and unhighlight text)
 vim.keymap.set("v", "<C-c>", '"+y:nohl<CR>', { silent = true, noremap = true })
+
+-- Leader
+vim.keymap.set("n", "<Leader>", ",", {})
