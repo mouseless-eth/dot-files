@@ -3,25 +3,22 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
 
-local on_attach = function(client)
-    -- Enable autoformat on save
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)")
-    -- Add other on_attach functionality here if needed
-end
+--local on_attach = function(client)
+--    -- Enable autoformat on save
+--    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)")
+--    -- Add other on_attach functionality here if needed
+--end
 
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 lspconfig["rust_analyzer"].setup({
     capabilities = capabilities,
-    settings = {
-        ["rust-analyzer"] = {
-            procMacro = {
-                enable = false
-            },
-            diagnostics = {
-                disabled = { "unresolved-proc-macro" }
-            }
-        }
-    }
+})
+lspconfig["bufls"].setup({
+    capabilities = capabilities,
+})
+lspconfig["clangd"].setup({
+    capabilities = capabilities,
+    filetypes = { "c", "cpp", "objc" },
 })
 lspconfig["gopls"].setup({
     capabilities = capabilities,
@@ -29,22 +26,25 @@ lspconfig["gopls"].setup({
 lspconfig["tsserver"].setup({
     capabilities = capabilities,
 })
+--lspconfig["solidity_ls_nomicfoundation"].setup({
+--    capabilities = capabilities,
+--})
 lspconfig["solidity"].setup({
     capabilities = capabilities,
-    on_attach = on_attach,
+    --on_attach = on_attach,
 
     cmd = { "nomicfoundation-solidity-language-server", "--stdio" },
     filetypes = { "solidity" },
     single_file_support = true,
     root_dir = require("lspconfig.util").root_pattern("foundry.toml"),
 })
-lspconfig["clangd"].setup({
+-- lspconfig["clangd"].setup({
+--     capabilities = capabilities,
+-- })
+lspconfig["pyright"].setup({
     capabilities = capabilities,
 })
-lspconfig["jedi_language_server"].setup({
-    capabilities = capabilities,
-})
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
     filetypes = { "lua" },
 
     settings = {
@@ -66,4 +66,5 @@ lspconfig["sumneko_lua"].setup({
     },
 })
 
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]])
+--vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]])
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
