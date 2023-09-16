@@ -1,7 +1,10 @@
+-- Leader
+vim.g.mapleader = " "
+
 -- Windows
 -- Split window
-vim.keymap.set("n", "ss", ":split<Return><C-w>w", { noremap = true })
-vim.keymap.set("n", "sv", ":vsplit<Return><C-w>w", { noremap = true })
+vim.keymap.set("n", "sh", ":split<Return><C-w>w", { noremap = true })   -- horizontal
+vim.keymap.set("n", "sv", ":vsplit<Return><C-w>w", { noremap = true })  -- vertical
 
 -- Move window
 vim.keymap.set("", "s<left>", "<C-w>H", { noremap = true })
@@ -27,6 +30,3 @@ vim.keymap.set("i", "<esc>", "`", { noremap = true })
 
 -- Ctrl+c yanks to system clipboard (and unhighlight text)
 vim.keymap.set("v", "<C-c>", '"+y:nohl<CR>', { silent = true, noremap = true })
-
--- Leader
-vim.keymap.set("n", "<Leader>", ",", {})

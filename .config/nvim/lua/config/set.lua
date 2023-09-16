@@ -34,8 +34,6 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.g.mapleader = " "
-
 vim.opt.foldcolumn = "1"
 
 -- Set the clipboard option to "unnamedplus" (copy deleted text to clipboard)

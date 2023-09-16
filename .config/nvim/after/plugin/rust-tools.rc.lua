@@ -173,4 +173,13 @@ local opts = {
     },
 }
 
+-- expand macros:
+vim.api.nvim_set_keymap('n', '<leader>rm', ':lua require"rust-tools.expand_macro".expand_macro()<CR>', { noremap = true, silent = true })
+
+-- move item up:
+vim.api.nvim_set_keymap('n', '<leader>rk', ':lua require"rust-tools.move_item".move_item(true)<CR>', { noremap = true, silent = true })
+
+-- move item down:
+vim.api.nvim_set_keymap('n', '<leader>rj', ':lua require"rust-tools.move_item".move_item(false)<CR>', { noremap = true, silent = true })
+
 require('rust-tools').setup(opts)

@@ -54,7 +54,15 @@ return require("packer").startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
     -- Eye candy to show LSP progress
-    use("j-hui/fidget.nvim")
+    use {
+      'j-hui/fidget.nvim',
+      tag = 'legacy',
+      config = function()
+        require("fidget").setup {
+          -- options
+        }
+      end,
+    }
     -- Vim devicons
     use("ryanoasis/vim-devicons")
     -- LspSaga
@@ -117,6 +125,11 @@ return require("packer").startup(function(use)
             require("aerial").setup()
         end,
     })
+
+    -- Terminal
+    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+       require("toggleterm").setup()
+    end}
 
     -- Movement
     use("ggandor/leap.nvim")
