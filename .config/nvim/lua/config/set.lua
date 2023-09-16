@@ -36,6 +36,8 @@ vim.opt.updatetime = 50
 
 vim.opt.foldcolumn = "1"
 
+-- vim.o.timeoutlen = 150
+
 -- Set the clipboard option to "unnamedplus" (copy deleted text to clipboard)
 -- vim.opt.clipboard = "unnamedplus"
 -- vim.opt.clipboard = "_d"

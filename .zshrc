@@ -15,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="jovial"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -79,13 +79,13 @@ ZSH_THEME="jovial"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  autojump
   urltools
   bgnotify
   zsh-autosuggestions
   zsh-syntax-highlighting
-  zsh-history-enquirer
   jovial
+  # git clone https://github.com/jeffreytse/zsh-vi-mode ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vi-mode
+  zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -117,25 +117,19 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="$PATH:/home/admin/.foundry/bin"
+export PATH="$PATH:$HOME/.config/local/bin"
 
 autoload -U compinit
 compinit -i
 
-# ZPlug
-source ~/.zplug/init.zsh
-zplug "jeffreytse/zsh-vi-mode"
-zplug "zsh-users/zsh-autosuggestions"
-zplug romkatv/powerlevel10k, as:theme, depth:1
-zplug load 
-
-# = = = = = = = = = = = = = = = 
-# | CUSTOM CONFIG STUFF BELOW | 
+# = = = = = = = = = = = = = = =
+# | CUSTOM CONFIG STUFF BELOW |
 # = = = = = = = = = = = = = = =
 
 # zsh-vi-Mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
-# foundry 
+# foundry
 # mkdir -p $HOME/.oh-my-zsh/completions
 # forge completions zsh > $HOME/.oh-my-zsh/completions/_forge
 # cast completions zsh > $HOME/.oh-my-zsh/completions/_cast
@@ -153,7 +147,7 @@ bindkey '^ ' autosuggest-accept
 # . "$HOME/.cargo/env"
 
 # Bindings
-alias vim="nvim"
+# alias vim="nvim"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -185,6 +179,12 @@ alias y='npx pnpm'
 # Make alias for neovide
 alias nvide='neovide'
 
+# Make alias to easily copy console output to clipboard
+alias copy='xclip -sel clip'
+
+alias c='clear'
+alias n='nvim'
+
 # Allow us to install npm packages gloabally without using sudo
 NPM_PACKAGES="${HOME}/.npm-packages"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
@@ -198,3 +198,14 @@ MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export PNPM_HOME="/home/admin/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+export PATH="$PATH:/home/admin/.huff/bin"
+export PATH="$PATH:/usr/local/stata17"
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+alias zsh="cd $(pwd) && zsh"
+
+unset RPROMPT
+
+#  Tmux stuff
+bindkey -s '^f' 'tmux-sessionizer\n'
