@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -138,7 +131,6 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 # zsh autosuggestions
 ZSH_AUTOSUGGEST_STRATEGY=(completion match_prev_cmd)
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="cd *"
-bindkey '^ ' autosuggest-accept
 
 # Change to saved working dir
 # [[ -f "${HOME}/.cwd"  ]] && cd "$(< ${HOME}/.cwd)"
@@ -149,29 +141,12 @@ bindkey '^ ' autosuggest-accept
 # Bindings
 # alias vim="nvim"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Alias for dotfile management
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Spawn terminal in current working directory
-# Sets a x window property on every directory change in the shell
-# So I can stay in the same directory when opening a new terminal
-function my_set_xwindow_path_hook() {
-  if [[ $TERM == "xterm-256color" && ! -z $WINDOWID ]]; then
-    xprop -id $WINDOWID -f MY_XWINDOW_PATH 8s -set MY_XWINDOW_PATH "$(pwd)"
-  fi
-}
-chpwd_functions=(${chpwd_functions[@]} "my_set_xwindow_path_hook")
-precmd_functions=(${precmd_functions[@]} "my_set_xwindow_path_hook")
-
-# Make .env file into environment variables
-alias setupenv='export $(xargs < .env)'
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Make alias for pnpm
 alias y='npx pnpm'
@@ -182,7 +157,6 @@ alias nvide='neovide'
 # Make alias to easily copy console output to clipboard
 alias copy='xclip -sel clip'
 
-alias c='clear'
 alias n='nvim'
 
 # Allow us to install npm packages gloabally without using sudo
@@ -208,4 +182,9 @@ alias zsh="cd $(pwd) && zsh"
 unset RPROMPT
 
 #  Tmux stuff
-bindkey -s '^f' 'tmux-sessionizer\n'
+function load_keybindings() {
+  bindkey -s ^f "tmux-sessionizer\n"
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook -Uz precmd load_keybindings
