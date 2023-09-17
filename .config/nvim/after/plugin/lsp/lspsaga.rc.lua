@@ -6,7 +6,7 @@ local keymap = vim.keymap.set
 keymap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>")
 
 -- Code action
-keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>")
+keymap({ "n", "v" }, "<leader>sa", "<cmd>Lspsaga code_action<CR>")
 
 -- Rename
 -- keymap("n", "<leader>sr", "<cmd>Lspsaga rename<CR>")
