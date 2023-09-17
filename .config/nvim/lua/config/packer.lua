@@ -100,14 +100,12 @@ return require("packer").startup(function(use)
 
     -- Snippets
     use("L3MON4D3/LuaSnip")
-    use("rafamadriz/friendly-snippets")
+    -- use("rafamadriz/friendly-snippets")
 
     -- Rust plugins
     use("simrat39/rust-tools.nvim")
-    use("mfussenegger/nvim-dap")
 
     -- Additional functionality
-    use("folke/zen-mode.nvim")
     use("mouseless-eth/vim-huff")
     use({ "zbirenbaum/copilot.lua" })
     use({
@@ -118,29 +116,10 @@ return require("packer").startup(function(use)
         end,
     })
 
-    -- Project layout
-    use({
-        "stevearc/aerial.nvim",
-        config = function()
-            require("aerial").setup()
-        end,
-    })
-
     -- Terminal
     use {"akinsho/toggleterm.nvim", tag = '*', config = function()
        require("toggleterm").setup()
     end}
-
-    -- Movement
-    use("ggandor/leap.nvim")
-    use("MattesGroeger/vim-bookmarks")
-
-    -- GoYo
-    use("junegunn/goyo.vim")
-
-    -- Golang
-    use("ray-x/go.nvim")
-    use("ray-x/guihua.lua") -- recommended if need floating window support
 
     -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then

@@ -119,6 +119,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH="$PATH:/home/admin/.foundry/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 autoload -U compinit
 compinit -i
