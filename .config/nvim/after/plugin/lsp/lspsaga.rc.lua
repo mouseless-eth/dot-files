@@ -67,10 +67,10 @@ keymap("n", "<leader>so", "<cmd>Lspsaga outgoing_calls<CR>")
 -- Float terminal
 keymap({ "n", "t" }, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
 
-require'lspsaga'.setup {
-  outline = {
-    win_position = 'left',
-    win_width = 40,
-    auto_preview = false
-  }
+require 'lspsaga'.setup {
+    outline = {
+        win_position = 'left',
+        win_width = 40,
+        auto_preview = false
+    }
 }

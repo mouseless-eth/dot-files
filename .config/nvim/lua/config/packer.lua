@@ -22,7 +22,7 @@ return require("packer").startup(function(use)
     -- Telescope specific plugins
     use({
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.0",
+        tag = "0.1.4",
         -- or                            , branch = '0.1.x',
         requires = { { "nvim-lua/plenary.nvim" } },
     })
@@ -34,10 +34,16 @@ return require("packer").startup(function(use)
 
     -- LSP specific plugins
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
-    use("nvim-treesitter/playground")
-    use("theprimeagen/harpoon")
     use("mbbill/undotree")
-    use("tpope/vim-fugitive")
+    use("neovim/nvim-lspconfig")
+    -- guard.nvim (formatting/linting)
+    use({
+        "nvimdev/guard.nvim",
+        requires = {
+            "nvimdev/guard-collection"
+        }
+    })
+
     -- File browser
     use({
         "nvim-neo-tree/neo-tree.nvim",
@@ -48,23 +54,27 @@ return require("packer").startup(function(use)
             "MunifTanjim/nui.nvim",
         },
     })
+
+    -- Eye candy to show LSP progress
+    use {
+        'j-hui/fidget.nvim',
+        tag = 'legacy',
+        config = function()
+            require("fidget").setup {
+                -- options
+            }
+        end,
+    }
+
     -- Statusline
     use({
         "nvim-lualine/lualine.nvim",
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
-    -- Eye candy to show LSP progress
-    use {
-      'j-hui/fidget.nvim',
-      tag = 'legacy',
-      config = function()
-        require("fidget").setup {
-          -- options
-        }
-      end,
-    }
+
     -- Vim devicons
     use("ryanoasis/vim-devicons")
+
     -- LspSaga
     use({
         "glepnir/lspsaga.nvim",
@@ -73,7 +83,8 @@ return require("packer").startup(function(use)
             require("lspsaga").setup({})
         end,
     })
-    -- autopair
+
+    -- Autopair
     use({
         "windwp/nvim-autopairs",
         config = function()
@@ -81,20 +92,12 @@ return require("packer").startup(function(use)
         end,
     })
 
-    -- LSP Support
-    use("neovim/nvim-lspconfig")
-    use("williamboman/mason.nvim")
-    use("williamboman/mason-lspconfig.nvim")
-    -- Null-ls (formatting)
-    -- use("jose-elias-alvarez/null-ls.nvim")
-
     -- Autocompletion
     use("hrsh7th/nvim-cmp")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-path")
     use("saadparwaiz1/cmp_luasnip")
     use("hrsh7th/cmp-nvim-lsp")
-    use("hrsh7th/cmp-nvim-lua")
     -- Icons for nvim-cmp
     use("onsails/lspkind.nvim")
 
@@ -117,9 +120,9 @@ return require("packer").startup(function(use)
     })
 
     -- Terminal
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-       require("toggleterm").setup()
-    end}
+    use { "akinsho/toggleterm.nvim", tag = '*', config = function()
+        require("toggleterm").setup()
+    end }
 
     -- Automatically set up your configuration after cloning packer.nvim
     if packer_bootstrap then

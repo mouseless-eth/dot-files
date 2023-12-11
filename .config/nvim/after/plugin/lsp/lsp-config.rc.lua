@@ -1,13 +1,6 @@
 -- Set up lspconfig.
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 local lspconfig = require("lspconfig")
-
---local on_attach = function(client)
---    -- Enable autoformat on save
---    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)")
---    -- Add other on_attach functionality here if needed
---end
 
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 lspconfig["rust_analyzer"].setup({
@@ -23,6 +16,18 @@ lspconfig["rust_analyzer"].setup({
 lspconfig["bufls"].setup({
     capabilities = capabilities,
 })
+lspconfig["eslint"].setup({
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "EslintFixAll",
+        })
+    end,
+})
+lspconfig["sqlls"].setup({
+    capabilities = capabilities,
+})
 lspconfig["clangd"].setup({
     capabilities = capabilities,
     filetypes = { "c", "cpp", "objc" },
@@ -30,8 +35,27 @@ lspconfig["clangd"].setup({
 lspconfig["gopls"].setup({
     capabilities = capabilities,
 })
+lspconfig["docker_compose_language_service"].setup({
+    capabilities = capabilities,
+    filetypes
+})
+lspconfig["dockerls"].setup({
+    capabilities = capabilities,
+})
 lspconfig["tsserver"].setup({
     capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+    end
+})
+lspconfig["hls"].setup({
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+    end,
+    filetypes = { 'haskell', 'lhaskell', 'cabal' },
 })
 lspconfig["solidity_ls_nomicfoundation"].setup({
     capabilities = capabilities,
@@ -51,27 +75,12 @@ lspconfig["solidity_ls_nomicfoundation"].setup({
 lspconfig["pyright"].setup({
     capabilities = capabilities,
 })
---lspconfig["lua_ls"].setup({
---    filetypes = { "lua" },
---
---    settings = {
---        Lua = {
---            -- Version of Lua used
---            runtime = { version = "LuaJIT" },
---            -- Get the language server to recognize the `vim` global
---            diagnostics = { globals = { "vim" } },
---            -- Make the server aware of Neovim runtime files
---            workspace = {
---                library = {
---                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
---                    [vim.fn.stdpath("config") .. "/lua"] = true,
---                },
---            },
---            -- Do not send telemetry data containing a randomized but unique identifier
---            telemetry = { enable = false },
---        },
---    },
---})
+lspconfig["emmet_ls"].setup({
+    capabilities = capabilities,
+    filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug",
+        "typescriptreact", "vue" },
+})
+require 'lspconfig'.lua_ls.setup {}
 
 --vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]])
 vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]

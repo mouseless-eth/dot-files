@@ -1,4 +1,4 @@
-vim.opt.guicursor = ""
+vim.opt.guicursor = "n:block-blinkon500,i:hor20"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -35,6 +35,13 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.foldcolumn = "1"
+
+-- Spacing for specific filetypes
+vim.api.nvim_command('autocmd BufNewFile,BufRead *.tsx setlocal tabstop=2 shiftwidth=2 expandtab')
+vim.api.nvim_command('autocmd BufNewFile,BufRead *.jsx setlocal tabstop=2 shiftwidth=2 expandtab')
+vim.api.nvim_command('autocmd BufNewFile,BufRead *.js setlocal tabstop=2 shiftwidth=2 expandtab')
+vim.api.nvim_command('autocmd BufNewFile,BufRead *.ts setlocal tabstop=2 shiftwidth=2 expandtab')
+vim.api.nvim_command('autocmd BufNewFile,BufRead *.sql setlocal tabstop=2 shiftwidth=2 expandtab')
 
 -- vim.o.timeoutlen = 150
 
